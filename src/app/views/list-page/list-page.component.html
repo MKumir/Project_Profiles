@@ -1,0 +1,7 @@
+<div class="divMain">
+    <div class="divProfile" *ngFor="let p of profiles; let i = index">
+        <p>
+            {{i+1}}. {{p.firstName}} {{p.lastName}} {{p.emailAddress}} {{p.hobbies}}
+        </p>
+    </div>
+</div>

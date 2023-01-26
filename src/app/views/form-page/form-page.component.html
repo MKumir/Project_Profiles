@@ -1,0 +1,38 @@
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>First name</mat-label>
+        <input [(ngModel)] = "profile.firstName" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Last name</mat-label>
+        <input [(ngModel)] = "profile.lastName" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input [(ngModel)] = "profile.emailAddress" matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Hobbies</mat-label>
+        <mat-select multiple [(ngModel)]="profile.hobbies">
+              <mat-option *ngFor="let hobby of hobbiesList" [value]="hobby">{{hobby}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <button mat-raised-button (click)="resetFormData()">Reset</button>
+    <button mat-raised-button (click)="viewFormData()">View</button>
+    <div>
+        <label class="resultLabel">Result</label>
+        <div class="resultDiv">
+            <div *ngIf="showResult">
+                <p>{{profile.firstName}} {{profile.lastName}},</p>
+                <p>{{profile.emailAddress}},</p>
+                <p>{{profile.hobbies}}</p>
+            </div>
+        </div>
+        <button mat-raised-button (click)="removeData()">Remove</button>
+        <button mat-raised-button (click)="saveData()">Save</button>
+        
+    </div>
+</div>
+
